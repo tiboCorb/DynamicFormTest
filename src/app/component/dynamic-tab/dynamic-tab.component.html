@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <ng-container *ngFor="let thead of theadTab">
+                <th>{{thead}}</th>
+            </ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of payload">
+        <tr>
+            <ng-container *ngFor="let thead of theadTab">
+                <td>{{item.thead}}</td>
+            </ng-container>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>
