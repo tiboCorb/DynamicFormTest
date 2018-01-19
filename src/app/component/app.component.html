@@ -8,6 +8,6 @@
 </head>
 <div class="content-container">
     <div class="content-area">
-        <app-dynamic-form *ngIf="questions" [questions]="questions"></app-dynamic-form>
+        <app-dynamic-form *ngIf="questions.length >0" [questions]="questions"></app-dynamic-form>
     </div>
 </div>

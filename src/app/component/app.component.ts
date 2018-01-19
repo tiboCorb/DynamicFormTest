@@ -12,6 +12,5 @@ export class AppComponent {
 
   constructor(service: QuestionService) {
     this.questions = service.getQuestions();
-    console.log(this.questions);
   }
 }

@@ -4,6 +4,8 @@ import { NgModule }                     from '@angular/core';
 
 import { ClarityModule }                from '@clr/angular';
 
+import { ValuesPipe }                   from './pipe/valuesPipe.pipe'
+
 import { AppComponent }                 from './component/app.component';
 import { DynamicFormComponent }         from './component/dynamic-form/dynamic-form.component';
 import { DynamicTabComponent }          from './component/dynamic-tab/dynamic-tab.component';
@@ -14,7 +16,7 @@ import { DynamicFormQuestionComponent } from './component/dynamic-form-question/
 
 @NgModule({
   imports: [ BrowserModule, ReactiveFormsModule, ClarityModule.forRoot() ],
-  declarations: [ AppComponent, DynamicFormComponent, DynamicFormQuestionComponent, DynamicTabComponent ],
+  declarations: [ AppComponent, DynamicFormComponent, DynamicFormQuestionComponent, DynamicTabComponent, ValuesPipe ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

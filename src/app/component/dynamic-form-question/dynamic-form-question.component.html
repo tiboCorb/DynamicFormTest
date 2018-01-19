@@ -3,10 +3,10 @@
     <label [ngClass]="question.required?'required':''" [attr.for]="question.key">{{question.label}}</label>
     <ng-container [ngSwitch]="question.controlType">
       <ng-container *ngSwitchCase="'textbox'">
-        <label *ngIf="question.required; else notMandatoryBlock " for="question.key"   class="tooltip tooltip-validation tooltip-sm tooltip-right"
-             [class.invalid]="form.controls[this.question.key].invalid
+        <label *ngIf="question.required; else notMandatoryBlock " for="question.key" class="tooltip tooltip-validation tooltip-sm tooltip-right"
+          [class.invalid]="form.controls[this.question.key].invalid
             && (form.controls[this.question.key].dirty || form.controls[this.question.key].touched)">
-          <input [formControlName]="question.key" [id]="question.key" type="text" style="width: 225px" >
+          <input [formControlName]="question.key" [id]="question.key" type="text" >
           <span class="tooltip-content">
             This field cannot be empty!
           </span>
@@ -17,17 +17,17 @@
       </ng-container>
 
       <ng-container *ngSwitchCase="'dropdown'">
-         
-        <div  class="select" style="width: 225px" >
-        <select [id]="question.key" [formControlName]="question.key" >
-          <option *ngFor="let opt of question.options" [value]="opt.key" >{{opt.value}}</option>
-        </select>
-        <span class="tooltip-content" style="color: #c92100" *ngIf="form.controls[this.question.key].invalid
+
+        <div class="select" style="width: 225px">
+          <select [id]="question.key" [formControlName]="question.key">
+            <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+          </select>
+          <span class="tooltip-content" style="color: #c92100" *ngIf="form.controls[this.question.key].invalid
         && (form.controls[this.question.key].dirty || form.controls[this.question.key].touched)">
             This field cannot be empty!
           </span>
-      </div>
-     
+        </div>
+
 
       </ng-container>
     </ng-container>

@@ -12,20 +12,23 @@ import { QuestionControlService }    from '../../service/question-control.servic
 export class DynamicFormComponent implements OnInit {
 
   @Input() questions: QuestionBase<any>[] = [];
-  form: FormGroup;
-  payLoad = [];
+  public form: FormGroup;
+  public payLoad = [];
+  public key : Array<string>
 
-  constructor(private qcs: QuestionControlService) {  }
+  constructor(private qcs: QuestionControlService) {
+    this.key= new Array();
+    }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
+    this.questions.forEach(question => {
+      this.key.push(question.key);      
+    });
   }
 
   onSubmit() {
-    console.log('from.control', this.form.controls.key);
-    console.log(this.form.value);
     this.payLoad.push(this.form.value);
-    console.log('payload', this.payLoad);
     this.form.reset();
   }
 }

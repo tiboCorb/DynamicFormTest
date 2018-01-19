@@ -8,11 +8,11 @@
     </thead>
     <tbody>
         <ng-container *ngFor="let item of payload">
-        <tr>
-            <ng-container *ngFor="let thead of theadTab">
-                <td>{{item.thead}}</td>
-            </ng-container>
-        </tr>
-    </ng-container>
+            <tr>
+                <ng-container *ngFor="let value of item | values">
+                    <td>{{value}}</td>
+                </ng-container>
+            </tr>
+        </ng-container>
     </tbody>
 </table>

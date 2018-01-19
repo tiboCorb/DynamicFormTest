@@ -1,22 +1,19 @@
-<div class="panel">
-
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <section class="form-block">
-        
-      <div *ngFor="let question of questions" class="form-row">
-        <app-question *ngIf="form" [question]="question" [form]="form"></app-question>
-      </div>
-    
-      <div class="form-row">
-        <button class="btn btn-outline" type="submit" [disabled]="!form.valid">Save</button>
-      </div>
-    
-    </section>
-  </form>
-
-  <div *ngIf="payLoad" class="form-row">
+<div class="row flex-items-xs-top">
+  <div class="col-lg-4">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+      <section class="form-block">
+        <div *ngFor="let question of questions" class="form-row">
+          <app-question *ngIf="form" [question]="question" [form]="form"></app-question>
+        </div>
+        <div class="form-row">
+          <button class="btn btn-outline" type="submit" [disabled]="!form.valid">Save</button>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div *ngIf="payLoad.length >0" class="col-lg-8">
     <strong>Saved the following values</strong>
-    <br>{{payLoad}}
+    <app-tab *ngIf="payLoad.length >0" [theadTab]="key" [payload]="payLoad"></app-tab>
   </div>
 
 </div>
